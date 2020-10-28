@@ -41,6 +41,28 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		
+		<!--  JPA, SQL e H2 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+
+	<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+		<dependency>
+    		<groupId>com.microsoft.sqlserver</groupId>
+    		<artifactId>mssql-jdbc</artifactId>
+    		
+		</dependency>
+
+
+
 	</dependencies>
 
 	<build>
@@ -51,5 +73,6 @@
 			</plugin>
 		</plugins>
 	</build>
+	
 
 </project>
