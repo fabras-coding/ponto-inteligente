@@ -43,13 +43,7 @@
 			
 		</dependency>
 		
-		
-		<dependency>
-  			<groupId>junit</groupId>
-  			<artifactId>junit</artifactId>
-  			<version>4.11</version>
-  			<scope>test</scope>
-		</dependency>
+	
 		<!--  JPA, SQL e H2 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
