@@ -1,6 +1,7 @@
 package com.starter.pontointeligente.api.repositories;
 
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,6 @@ import org.junit.After;
 import org.junit.Before;
 
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
 public class EmpresaRepositoryTest {
@@ -27,7 +27,7 @@ public class EmpresaRepositoryTest {
 
 	public static final String CNPJ = "51479301000180";
 	
-	@Before //executa antes do teste
+	@BeforeEach //executa antes do teste
 	public void setUp() throws Exception{
 		
 		Empresa empresa = new Empresa();
