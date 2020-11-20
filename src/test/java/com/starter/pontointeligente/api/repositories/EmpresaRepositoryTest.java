@@ -1,6 +1,7 @@
 package com.starter.pontointeligente.api.repositories;
 
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +14,6 @@ import com.starter.pontointeligente.api.entities.Empresa;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.After;
 
 
 @SpringBootTest
@@ -35,7 +35,7 @@ public class EmpresaRepositoryTest {
 		this.empresaRepository.save(empresa);
 	}
 	
-	@After //...
+	@AfterEach //...
 	public final void tearDown() {
 		this.empresaRepository.deleteAll();
 	}
