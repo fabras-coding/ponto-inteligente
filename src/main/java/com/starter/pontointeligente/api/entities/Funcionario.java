@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 import java.util.*;
 
 import javax.persistence.*;
-import org.springframework.data.annotation.Id;
 
 import com.starter.pontointeligente.api.enums.PerfilEnum;
 
@@ -171,7 +170,7 @@ public class Funcionario implements Serializable {
 		this.empresa = empresa;
 	}
 
-	@OneToMany(mappedBy = "TB_FUNCIONARIO", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "funcionario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	public List<Lancamento> getLancamentos() {
 		return lancamentos;
 	}

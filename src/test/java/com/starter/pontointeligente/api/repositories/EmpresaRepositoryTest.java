@@ -31,7 +31,7 @@ public class EmpresaRepositoryTest {
 		
 		Empresa empresa = new Empresa();
 		empresa.setRazaoSocial("Empresa de Exemplo");
-		empresa.setCnpj("01123456789");
+		empresa.setCnpj(CNPJ);
 		this.empresaRepository.save(empresa);
 	}
 	

@@ -5,8 +5,6 @@ import java.io.Serializable;
 import java.util.*;
 
 import javax.persistence.*;
-import org.springframework.data.annotation.Id;
-
 
 @Entity
 @Table(name ="TB_EMPRESA")
@@ -77,7 +75,7 @@ public class Empresa implements Serializable{
 			this.dataAtualizacao = dataAtualizacao;
 		}
 
-		@OneToMany(mappedBy = "TB_EMPRESA", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+		@OneToMany(mappedBy = "empresa", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 		public List<Funcionario> getFuncionarios() {
 			return funcionarios;
 		}
