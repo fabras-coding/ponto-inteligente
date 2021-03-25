@@ -30,3 +30,5 @@ Fazer o mesmo procedimento na pasta lib
 
 
 Caso ainda dê erro, ir até a pasta C:\Program Files (x86)\Common Files\Oracle\Java\javapath e colar o mesmo arquivo, de acordo com a arquitetura. Pode ser que na execução ele reclame que está na arquitetura X, neste caso, basta pegar a .dll da pasta de arquitetura oposta e colar nessa mesma pasta.
+
+Para este projeto em especifico, deve-se baixar o jdbc 7.4
