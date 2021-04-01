@@ -15,6 +15,7 @@ public class CadastroPJDto {
 	private String email;
 	private String senha;
 	private String cpf;
+	
 	private String razaoSocial;
 	private String cnpj;
 	
