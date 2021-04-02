@@ -82,11 +82,11 @@ public class CadastroPFDto {
 		this.valorHora = valorHora;
 	}
 
-	public Optional<String> getQtdHorasTrablhoDia() {
+	public Optional<String> getQtdHorasTrabalhoDia() {
 		return qtdHorasTrabalhoDia;
 	}
 
-	public void setQtdHorasTrablhoDia(Optional<String> qtdHorasTrablhoDia) {
+	public void setQtdHorasTrabalhoDia(Optional<String> qtdHorasTrablhoDia) {
 		this.qtdHorasTrabalhoDia = qtdHorasTrablhoDia;
 	}
 

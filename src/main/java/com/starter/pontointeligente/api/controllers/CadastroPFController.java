@@ -1,5 +1,6 @@
 package com.starter.pontointeligente.api.controllers;
 
+import java.math.BigDecimal;
 import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
 
@@ -20,9 +21,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.starter.pontointeligente.api.dtos.CadastroPFDto;
 import com.starter.pontointeligente.api.entities.Empresa;
 import com.starter.pontointeligente.api.entities.Funcionario;
+import com.starter.pontointeligente.api.enums.PerfilEnum;
 import com.starter.pontointeligente.api.response.Response;
 import com.starter.pontointeligente.api.services.IEmpresaService;
 import com.starter.pontointeligente.api.services.IFuncionarioService;
+import com.starter.pontointeligente.api.utils.PasswordUtils;
 
 @RestController
 @RequestMapping("/api/cadastrar-pf")
@@ -69,16 +72,56 @@ public class CadastroPFController {
 		
 	}
 
+	/**
+	 * Converte o funcionário de volta para um DTO funcionario.
+	 * 
+	 * @param funcionario
+	 * @return CadastroPFDto
+	 */
 	private CadastroPFDto converterCadastroPFDto(Funcionario funcionario) {
 		
-		//CadastroPFDto 
+		CadastroPFDto cadastroPFDto = new CadastroPFDto();
 		
-		return null;
+		cadastroPFDto.setCpf(funcionario.getCpf());
+		cadastroPFDto.setEmail(funcionario.getEmail());
+		cadastroPFDto.setCnpj(funcionario.getEmpresa().getCnpj());
+		cadastroPFDto.setNome(funcionario.getNome());
+		cadastroPFDto.setId(funcionario.getId());
+
+		funcionario.getQdtHorasAlmocoOpt().ifPresent(horasAlmoco -> cadastroPFDto.setQtdHorasAlmoco(Optional.of(horasAlmoco.toString())));
+		funcionario.getQdtHorasTrabalhoDiaOpt().ifPresent(horasTrabalho -> cadastroPFDto.setQtdHorasTrabalhoDia(Optional.of(horasTrabalho.toString())));
+		funcionario.getValorHoraOpt().ifPresent(valorHora -> cadastroPFDto.setValorHora(Optional.of(valorHora.toString())));
+		
+		return cadastroPFDto;
 	}
 
-	private Funcionario converterDtoParaFuncionario(@Valid CadastroPFDto cadastroPFDto, BindingResult result) {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * Converte os dados do DTO para funcionário.
+	 * 
+	 * @param cadastroPFDto
+	 * @param result
+	 * @return Funcionario
+	 * @throws NoSuchAlgorithmException
+	 */
+	private Funcionario converterDtoParaFuncionario(CadastroPFDto cadastroPFDto, BindingResult result) throws NoSuchAlgorithmException {
+		Funcionario funcionario = new Funcionario();
+		
+		funcionario.setCpf(cadastroPFDto.getCpf());
+		funcionario.setEmail(cadastroPFDto.getEmail());
+		funcionario.setNome(cadastroPFDto.getNome());
+		funcionario.setPerfil(PerfilEnum.ROLE_USUARIO);
+		funcionario.setSenha(PasswordUtils.gerarBCrypt(cadastroPFDto.getSenha()));
+		
+		cadastroPFDto.getQtdHorasAlmoco()
+			.ifPresent(qtd -> funcionario.setQdtHorasAlmoco(Float.valueOf(qtd)));
+		
+		cadastroPFDto.getQtdHorasTrabalhoDia()
+			.ifPresent(qtdHrTr -> funcionario.setQdtHorasTrabalhoDia(Float.valueOf(qtdHrTr)));
+		
+		cadastroPFDto.getValorHora()
+			.ifPresent(vlrHr -> funcionario.setValorHora(new BigDecimal(vlrHr)));
+		
+		return funcionario;
 	}
 
 	/**
