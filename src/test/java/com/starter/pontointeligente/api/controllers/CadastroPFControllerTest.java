@@ -32,12 +32,12 @@ public class CadastroPFControllerTest {
 		URI uri = new URI("/api/cadastrar-pj");
 		
 		String json = "{\r\n"
-				+ "	\"nome\": \"Fabs\",\r\n"	
-				+ "	\"email\": \"fabs@fabs.com\",\r\n"
+				+ "	\"nome\": \"Fabs Olives\",\r\n"	
+				+ "	\"email\": \"fabs@olivs.com\",\r\n"
 				+ "	\"senha\": \"123456\",\r\n"
-				+ "	\"cpf\": \"42181987807\",\r\n"
-				+ "	\"razaoSocial\": \"Fabs Emps\",\r\n"
-				+ "	\"cnpj\": \"43115716000147\"\r\n"
+				+ "	\"cpf\": \"11739075056\",\r\n"
+				+ "	\"razaoSocial\": \"Fabs Emprendimentos\",\r\n"
+				+ "	\"cnpj\": \"93897307000118\"\r\n"
 				+ "}";
 	
 		mockMvc
@@ -51,12 +51,12 @@ public class CadastroPFControllerTest {
 		
 		URI uri2 = new URI("/api/cadastrar-pf");
 		String json2 = "{\r\n"
-				+ "	\"nome\": \"Fulano de Tal\",\r\n"
-				+ "	\"email\": \"fulano@empresaum.com\",\r\n"
+				+ "	\"nome\": \"Fulano de Tals\",\r\n"
+				+ "	\"email\": \"fulanos@empresas.com\",\r\n"
 				+ "	\"senha\": \"654321\",\r\n"
-				+ "	\"cpf\": \"15506659016\",\r\n"
+				+ "	\"cpf\": \"90299166058\",\r\n"
 				+ "	\"valorHora\": \"40\",\r\n"
-				+ "	\"cnpj\": \"43115716000147\"\r\n"
+				+ "	\"cnpj\": \"93897307000118\"\r\n"
 				+ "}";
 		
 		mockMvc
