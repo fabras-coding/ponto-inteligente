@@ -23,6 +23,13 @@ public class CadastroPFControllerTest {
 	
 	@BeforeEach
 	public void setup() throws Exception {
+	
+				
+	}
+	
+	@Test
+	public void postCadastroPFOK() throws Exception{
+		
 		
 		URI uri = new URI("/api/cadastrar-pj");
 		
@@ -43,14 +50,9 @@ public class CadastroPFControllerTest {
 		.andExpect(MockMvcResultMatchers
 				.status()
 				.is(200));
-				
-	}
-	
-	@Test
-	public void postCadastroPFOK() throws Exception{
 		
-		URI uri = new URI("/api/cadastrar-pf");
-		String json = "{\r\n"
+		URI uri2 = new URI("/api/cadastrar-pf");
+		String json2 = "{\r\n"
 				+ "	\"nome\": \"Alan peão da Massa\",\r\n"
 				+ "	\"email\": \"alan@empresaum.com\",\r\n"
 				+ "	\"senha\": \"654321\",\r\n"
@@ -61,8 +63,8 @@ public class CadastroPFControllerTest {
 		
 		mockMvc
 		.perform(MockMvcRequestBuilders
-				.post(uri)
-				.content(json)
+				.post(uri2)
+				.content(json2)
 				.contentType(MediaType.APPLICATION_JSON))
 		.andExpect(MockMvcResultMatchers
 				.status()
