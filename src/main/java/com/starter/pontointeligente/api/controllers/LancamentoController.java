@@ -37,7 +37,7 @@ public class LancamentoController {
 		@Autowired
 		private IFuncionarioService funcionarioService;
 		
-		@Value("${paginacao.qtd_por_pagina") // pega o vaor do atributo no application properties
+		@Value("${paginacao.qtd_por_pagina}") // pega o vaor do atributo no application properties
 		private int qtdPorPagina;
 		
 		public LancamentoController() {
