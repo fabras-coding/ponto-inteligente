@@ -1,0 +1,7 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"> <!-- feito dessa maneira pq nao tenho o Guia de referencia para saber como salvar localmente no projeto, mas como sou embaçado, to usando um "cdn" do ehcache -->
+	<cache name="lancamentoPorId" 
+	maxEntriesLocalHeap="200" 
+	timeToLiveSeconds="3600">
+	</cache>	
+</ehcache>
